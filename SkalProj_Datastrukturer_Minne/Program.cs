@@ -8,8 +8,11 @@ namespace SkalProj_Datastrukturer_Minne
         /// The main method, vill handle the menues for the program
         /// </summary>
         /// <param name="args"></param>
+        
+        
         static void Main()
         {
+            
 
             while (true)
             {
@@ -60,8 +63,37 @@ namespace SkalProj_Datastrukturer_Minne
         /// <summary>
         /// Examines the datastructure List
         /// </summary>
+        /// Declaring myList here so I can use it across loops
+        private static List<string> myList = new List<string>();
         static void ExamineList()
         {
+            Console.Write("Type + to add or - to remove from list: ");
+            
+            string input = Console.ReadLine();
+            char nav = input[0];
+            
+
+            switch (nav)
+            {
+                case '+':
+                    Utility.AddToList(myList);
+                    break;
+
+                case '-':
+                    Utility.RemoveFromList(myList);
+                    break;
+
+                default:
+                    Console.WriteLine("Please only use + & - for adding or removing.\n");
+                    break;
+
+
+            }
+            foreach (var item in myList)
+            {
+                Console.WriteLine(item);
+            }
+            
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch statement with cases '+' and '-'
