@@ -81,8 +81,10 @@ namespace SkalProj_Datastrukturer_Minne
                         return false; // nothing to match
                     }
 
+                    //if stack is not empty, pop the top item
                     char openParenthesis = stack.Pop();
 
+                    // check popped item and compare it to c
                     if ((openParenthesis == '(' && c != ')') ||
                         (openParenthesis == '{' && c != '}') ||
                         (openParenthesis == '[' && c != ']'))
@@ -91,6 +93,7 @@ namespace SkalProj_Datastrukturer_Minne
                     }
                 }
             }
+            //if all symbols had matching closing symbols, return true
             return stack.Count == 0;
         }
 
